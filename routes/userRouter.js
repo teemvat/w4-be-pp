@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const auth = require('../middleware/auth');
 const {
     getAllUsers,
     getUserById,
@@ -10,6 +10,9 @@ const {
 } = require ("../controllers/userControllers");
 
 router.use(express.json());
+
+router.use(auth);
+
 
 router.get("/", getAllUsers);
 

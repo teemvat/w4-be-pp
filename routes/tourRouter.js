@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 
 const {
   getAllTours,
@@ -11,6 +12,8 @@ const {
 
 // Middleware to parse JSON
 router.use(express.json());
+
+router.use(auth);
 
 // ROUTES
 // GET /tours
